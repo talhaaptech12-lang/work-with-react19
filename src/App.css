@@ -45,4 +45,9 @@
   width: 40vw;
   
 } */
- 
+ #table{
+  border: 1px solid black;
+ }
+ #table-row{
+  border: 1px solid black;
+ }
