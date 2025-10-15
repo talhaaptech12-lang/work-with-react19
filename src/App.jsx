@@ -1,14 +1,55 @@
 
 import './App.css'
-import Skills from './Skills';
+import College from './College';
 
 
 
 function App() {
+const CollegeData=[
+    {
+        Name: "Premier",
+        City: "Karachi",
+        Student : [
+            {
+                Name: "Ali",
+                Age: "23"
+            },
+            {
+                Name: "Sara",
+                Age: "12"
 
+            }
+        ]
+
+    },
+    {
+        Name: "BufferZone",
+        City: "Shadman city",
+         Student : [
+            {
+                Name: "Zaid",
+                Age: "23"
+            },
+            {
+                Name: "Chisi",
+                Age: "12"
+
+            }
+        ]
+
+    }
+  ]
   return (
     <>
-    <Skills />
+    {
+      CollegeData.map((college, index)=>(
+        <div key={index}>
+    <College college={college} />
+          
+        </div>
+
+      ))
+    }
     
 
     </>
