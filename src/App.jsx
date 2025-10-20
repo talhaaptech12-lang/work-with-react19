@@ -1,78 +1,42 @@
 
-import { useRef } from 'react';
-import './App.css'
-import Counter from './Counter';
-import Styling from './Styling';
-import User from './user';
 
+import {useState } from 'react';
+import './App.css'
+import AddUser from '../AddUser';
+import Display from '../Display';
 
 
 function App() {
-const Talha=(name)=>{
-  console.log(name)
+const [users, setUsers]=useState([])
+const [user, setUser]= useState("")
+const input=document.getElementById("far")
+const [Haleema, setHaleema]=useState("")
+
+
+const Userhandler=()=>{
+  setUsers([...users, user])
+  input.value= ""
 }
+const Total = users.length;
+const NewUser= users[users.length-1];
+const unique= [...new Set(users)].length;
 
-const Haleema=()=>{
-  console.log("Child")
-}
-
-  const userref = useRef();
-  const paswrref = useRef();
-  const formhandler=(event)=>{
-event.preventDefault(); // is line s page reload nh hoga jb ham button pr click kregay submit k.
-const user= document.querySelector("#user").value;
-const password= document.querySelector("#password").value;
-
-console.log(user, password)
-
-  }
-  const formhandler1=(event)=>{
-    event.preventDefault();
-    const user = userref.current.value;
-    const pasword = paswrref.current.value;
-    console.log(user, pasword)
-  }
-    // const[counter, setCounter]= useState(0)
-    // const[data, setData]= useState(0)
-
-    // const [display , setDisplay]=useState(true)
-
-//     useEffect(()=>{
-// CallOnce();
-
-//     },[counter])
-// function CallOnce(){
-//     console.log("this is effect work");
-    
-// }
   return (
     <>
-    {/* {
-    display?<Counter Counter={counter} data={data} />:null
-    }
-    <button onClick={()=>setCounter(counter+1)}> counter {counter}</button>
-    <button onClick={()=>setData(data+1)}> Data {data}</button>
-    <button onClick={()=>setDisplay(!display)}> Toggle </button> */}
 
-{/* <Styling/> */}
-
-<form action="" onSubmit={formhandler}>
-  <input id='user' type="text" placeholder='Enter YOur name' />
-  <br /><br />
-  <input id='password' type="password" placeholder='Enter YOur password' />
-  <br />
-  <button onClick={formhandler}>Submit</button>
-</form>
-<hr />
-<form action="" onSubmit={formhandler1}>
-  <input ref={userref} type="text" placeholder='Enter YOur name' />
-  <br /><br />
-  <input ref={paswrref} type="password" placeholder='Enter YOur password' />
-  <br />
-  <button>Submit</button>
-</form>
-
-<User Sir={Talha} name="talha" daughter={Haleema}/>
+    <h2>derived state uses</h2>
+    <h3>Total Users: {Total}</h3>
+    <h3>New User: {NewUser}</h3>
+    <h3>Unique User: {unique}</h3>
+  <input id="far" onChange={(event)=>setUser(event.target.value)} type="text" placeholder='Enter user Name'/>
+  <button onClick={Userhandler}>Click to  Add users</button>
+  {
+    users.map((item,index)=>(
+      <h4 key={index}>{item}</h4>
+    ))
+  }
+  <AddUser setHaleema={setHaleema}/>
+  <Display haleema={Haleema}/>
     </>
   )
 }
