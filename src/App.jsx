@@ -1,42 +1,48 @@
 
 
-import {useState } from 'react';
+import { useState } from 'react';
 import './App.css'
-import AddUser from '../AddUser';
-import Display from '../Display';
 
 
 function App() {
-const [users, setUsers]=useState([])
-const [user, setUser]= useState("")
-const input=document.getElementById("far")
-const [Haleema, setHaleema]=useState("")
+  const [data, setdata]=useState({
+  
+    Name: "Talha",
+    Address:{
+      City: "Karachi",
+      Country: "Pakistan"
 
-
-const Userhandler=()=>{
-  setUsers([...users, user])
-  input.value= ""
+    
+  }
+})
+const handleName=(val)=>{
+  data.Name=val
+  setdata({...data})
 }
-const Total = users.length;
-const NewUser= users[users.length-1];
-const unique= [...new Set(users)].length;
 
+
+const handleCity=(City)=>{
+  data.Address.City=City
+  console.log(data)
+  setdata({...data, Address:{...data.Address,City}})
+}
+const handleCountry=(Country)=>{
+  data.Address.Country=Country
+  // console.log(data)
+  setdata({...data, Address:{...data.Address,Country}})
+}
   return (
     <>
+    <input type="text"  onChange={(event)=>handleName(event.target.value)} placeholder='Update your data' />
+    <input type="text"  onChange={(event)=>handleCity(event.target.value)} placeholder='Update your data' />
+    <input type="text"  onChange={(event)=>handleCountry(event.target.value)} placeholder='Update your data' />
+    <h3>Name: {data.Name} </h3>
+    <h3>City: {data.Address.City} </h3>
+    <h3>Country: {data.Address.Country} </h3>
 
-    <h2>derived state uses</h2>
-    <h3>Total Users: {Total}</h3>
-    <h3>New User: {NewUser}</h3>
-    <h3>Unique User: {unique}</h3>
-  <input id="far" onChange={(event)=>setUser(event.target.value)} type="text" placeholder='Enter user Name'/>
-  <button onClick={Userhandler}>Click to  Add users</button>
-  {
-    users.map((item,index)=>(
-      <h4 key={index}>{item}</h4>
-    ))
-  }
-  <AddUser setHaleema={setHaleema}/>
-  <Display haleema={Haleema}/>
+    
+
+  
     </>
   )
 }
