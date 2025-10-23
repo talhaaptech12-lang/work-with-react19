@@ -1,11 +1,16 @@
 import React from 'react'
-import Classi from './Classi'
-
+import { Link, NavLink, Outlet } from 'react-router'
 export default function College() {
   return (
-    <div style={{backgroundColor: "green", height: "90vh", color:"white", padding: 10}}>
-        <h1>this is college</h1>
-        <Classi/>
+    <div className='college' style={{textAlign:"center"}} >
+        <h1 style={{textAlign: "center"}}>College Page</h1>
+    
+        <NavLink className="link" to="department" >Dept</NavLink>
+        <NavLink className="link" to="/" >Details</NavLink>
+        <NavLink className="link" to="student" >Student</NavLink>
+        <Outlet/>
+
+    
     </div>
   )
 }

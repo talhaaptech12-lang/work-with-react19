@@ -1,31 +1,42 @@
 
 
-import { useState } from 'react';
+
+import { Route, Routes } from 'react-router';
+import About from './About';
 import './App.css'
+import Home from './Home';
+import Login from './Login';
+import Navbar from './Navbar';
+import PageNotFound from './PageNotFound';
 import College from './College';
-import { SubjectContext } from './context';
-
-
+import Student from './Student';
+import Department from './Department';
 function App() {
-const [Subject, setSubject]=useState(' ')
 
   return (
-    <div style={{backgroundColor: "grey", height: "90vh", color:"white", padding: 10}}>
-     <SubjectContext.Provider value={Subject}>
-<select defaultValue={Subject} onChange={(event)=>setSubject(event.target.value)}>
-  <option value="">Select Subject</option>
-  <option value="Maths">Maths</option>
-  <option value="Urdu">Urdu</option>
-  <option value="Science">Science</option>
-</select>
+    <div >
+      
 
-<button onClick={()=>setSubject("")}>Clear Subject</button>
+      <Routes>
+      <Route element={<Navbar/>}>
+      <Route path='/' element={<Home/>}/>
+        <Route path='/about' element={<About/>}/>
+        <Route path='/login' element={<Login/>}/>
+      
+      
+      </Route>
 
-<h1>Context API</h1>
+        
 
-      <College/>
-     </SubjectContext.Provider>
+        <Route path='/college' element={<College/>} >
+        <Route path='student' element={<Student/>}/>
+        <Route path='department' element={<Department/>}/>
+        </Route>
+
+        <Route path='/*' element={<PageNotFound/>} />
+      </Routes>
      
+    
       
 
     </div>
