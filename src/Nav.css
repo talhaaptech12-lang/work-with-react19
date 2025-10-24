@@ -13,7 +13,7 @@ body{
     justify-content: space-around;
     list-style-type: none;
     margin: auto;
-    width: 300px;
+    width: 330px;
 }
 .header ul li{
     padding: 10px;
@@ -32,4 +32,7 @@ body{
     text-decoration: none;
     font-size: 2rem;
     margin: 1rem;
+}
+.active{
+    font-weight: bold;
 }

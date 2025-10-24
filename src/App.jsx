@@ -11,6 +11,8 @@ import PageNotFound from './PageNotFound';
 import College from './College';
 import Student from './Student';
 import Department from './Department';
+import Userlist from './Userlist';
+import Userdetal from './Userdetal';
 function App() {
 
   return (
@@ -22,6 +24,8 @@ function App() {
       <Route path='/' element={<Home/>}/>
         <Route path='/about' element={<About/>}/>
         <Route path='/login' element={<Login/>}/>
+        <Route path='/user' element={<Userlist/>}/>
+        <Route path='/user/:name' element={<Userdetal/>}/>
       
       
       </Route>
