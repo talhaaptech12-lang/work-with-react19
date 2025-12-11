@@ -1,23 +1,64 @@
-button{
-  margin-left: 2rem;
-  height: 4rem;
-  width: 6rem;
-  border: none;
-  background-color: rgb(255, 106, 47);
-  color: white;
-  font-size: large;
-  border-radius: 10px;
+body{
+    align-items: center;
+    background: url(Image/bg.jpg) no-repeat center;
+    background-size: cover;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    
+    
 }
-.notes{
-  width: 200px;
-  height: 200px;
-  border: 1px solid black;
+.TodoWrapper{
+    background-color:rgba(192, 231, 192, 0.356);
+    border: 1px solid white;
+    height: 80vh;
+    width: 40vw;
+    color: white;
+    border-radius: 10px;
+    margin-top: 2rem;
+    overflow-y: auto;
 }
-input{
-  width: 18rem;
-  height: 3rem;
-  font-size: 2rem;
-  outline: none;
-  
+.TodoInput{
+    width: 50%;
+    margin-left: 7rem;
+    height: 3rem;
+    font-size: 1.3rem;
+    
 }
+.TodoBtn{
+    height: 3rem;
+    width: 8rem;
+    border: 1px solid white;
+    color: white;
+    background-color: rgba(178, 192, 178, 0.767);
+    font-size: 1.3rem;
 
+
+}
+.todo{
+    display: flex;
+    justify-content:space-between;
+    padding: 2rem;
+    /* border: 1px solid black; */
+    height: 1rem;
+    background-color: green;
+    
+    
+}
+.Delete-btn{
+    height: 2rem;
+    width: 6rem;
+    color: black;
+
+}
+.Edit-btn{
+    height: 2rem;
+    width: 6rem;
+    color: black;
+}
+#para{
+    color: gold;
+    font-size: 2rem;
+    margin-top: 0;
+    cursor: pointer;
+}
