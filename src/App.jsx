@@ -1,11 +1,11 @@
 import "./App.css";
-import TodoWrapper from "./TodoWrapper";
-
+import { FormValidaiton } from "./FormValidaiton";
 function App() {
  
+
   return (
-    <div id="card">
-      <TodoWrapper/>
+    <div >
+    <FormValidaiton></FormValidaiton>
     </div>
   );
 }
